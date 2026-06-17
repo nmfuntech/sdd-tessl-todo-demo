@@ -1,0 +1,51 @@
+{
+  "specs/notes-app.spec.md": {
+    "targets": [
+      "src/App.jsx",
+      "src/components/NoteList.jsx",
+      "src/components/NoteModal.jsx",
+      "src/hooks/useNotes.js",
+      "src/utils/storage.js"
+    ],
+    "requirements": {
+      "REQ-NOTES-001": {
+        "tests": [
+          "src/tests/NoteList.test.jsx",
+          "src/tests/NoteList.test.jsx"
+        ]
+      },
+      "REQ-NOTES-002": {
+        "tests": [
+          "src/tests/NoteModal.test.jsx",
+          "src/tests/NoteModal.test.jsx",
+          "src/tests/useNotes.test.js"
+        ]
+      },
+      "REQ-NOTES-003": {
+        "tests": [
+          "src/tests/NoteModal.test.jsx",
+          "src/tests/useNotes.test.js"
+        ]
+      },
+      "REQ-NOTES-004": {
+        "tests": [
+          "src/tests/NoteModal.test.jsx",
+          "src/tests/useNotes.test.js"
+        ]
+      },
+      "REQ-NOTES-005": {
+        "tests": [
+          "src/tests/storage.test.js",
+          "src/tests/storage.test.js"
+        ]
+      },
+      "REQ-NOTES-006": {
+        "tests": [
+          "src/tests/App.test.jsx",
+          "src/tests/App.test.jsx",
+          "src/tests/NoteModal.test.jsx"
+        ]
+      }
+    }
+  }
+}

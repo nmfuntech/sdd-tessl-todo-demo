@@ -1,0 +1,13 @@
+{
+  "name": "vibe-ai/spec-as-source",
+  "version": "1.1.1",
+  "description": "Adds spec-as-source enforcement to any project using spec-driven development",
+  "summary": "Adds spec-as-source enforcement to any project using spec-driven development",
+  "skills": [
+    "skills/spec-as-source-setup",
+    "skills/spec-verify",
+    "skills/spec-rebuild"
+  ],
+  "rules": ["rules/spec-as-source.md", "rules/generated-file-header.md"],
+  "docs": ["docs/policy.md"]
+}

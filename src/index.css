@@ -1,0 +1,35 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark: #05050f;
+  --bg-panel: #0d0d1f;
+  --bg-card: #0f0f2e;
+  --neon-cyan: #00f5ff;
+  --neon-violet: #bf00ff;
+  --neon-green: #00ff41;
+  --neon-pink: #ff00aa;
+  --text-primary: #e0e8ff;
+  --text-muted: #6b7db3;
+  --border-glow: rgba(0, 245, 255, 0.3);
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 245, 255, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(191, 0, 255, 0.04) 0%, transparent 60%);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
