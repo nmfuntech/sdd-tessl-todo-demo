@@ -89,7 +89,7 @@ export default function App() {
         <NoteModal
           note={modal === 'new' ? null : modal}
           onSave={handleSave}
-          onDelete={deleteNote}
+          // onDelete={deleteNote}
           onClose={() => setModal(null)}
         />
       )}
