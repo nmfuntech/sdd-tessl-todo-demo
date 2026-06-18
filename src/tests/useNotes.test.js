@@ -1,8 +1,10 @@
+// @spec specs/notes-app.spec.md
+// @req REQ-NOTES-002, REQ-NOTES-003, REQ-NOTES-004, REQ-NOTES-005
+
 import { describe, it, expect, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { useNotes } from '../hooks/useNotes'
 
-// REQ-NOTES-002, REQ-NOTES-003, REQ-NOTES-004, REQ-NOTES-005
 describe('useNotes', () => {
   beforeEach(() => localStorage.clear())
 

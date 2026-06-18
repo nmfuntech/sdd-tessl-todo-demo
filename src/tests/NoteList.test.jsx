@@ -1,3 +1,6 @@
+// @spec specs/notes-app.spec.md
+// @req REQ-NOTES-001
+
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -8,7 +11,6 @@ const sampleNotes = [
   { id: '2', title: 'Seconda nota', body: 'Contenuto due', createdAt: 2000 },
 ]
 
-// REQ-NOTES-001
 describe('NoteList', () => {
   it('shows empty state message when notes array is empty', () => {
     render(<NoteList notes={[]} onSelectNote={() => {}} />)

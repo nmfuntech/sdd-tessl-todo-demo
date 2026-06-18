@@ -1,3 +1,6 @@
+// GENERATED FROM SPEC: specs/notes-app.spec.md
+// REQ-NOTES-005 — Persistenza
+
 const KEY = 'neonotes_v1'
 
 export function loadNotes() {

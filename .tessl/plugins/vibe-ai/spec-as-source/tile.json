@@ -1,6 +1,6 @@
 {
   "name": "vibe-ai/spec-as-source",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "summary": "Adds spec-as-source enforcement to any project using spec-driven development",
   "skills": {
     "spec-as-source-setup": {
@@ -11,6 +11,9 @@
     },
     "spec-rebuild": {
       "path": "skills/spec-rebuild/SKILL.md"
+    },
+    "spec-ci-sync": {
+      "path": "skills/spec-ci-sync/SKILL.md"
     }
   },
   "rules": {

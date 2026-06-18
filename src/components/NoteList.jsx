@@ -1,3 +1,6 @@
+// GENERATED FROM SPEC: specs/notes-app.spec.md
+// REQ-NOTES-001 — Lista note
+
 const styles = {
   container: {
     maxWidth: '800px',

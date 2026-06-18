@@ -1,28 +1,29 @@
+// @spec specs/notes-app.spec.md
+// @req REQ-NOTES-005
+
 import { describe, it, expect, beforeEach } from 'vitest'
 import { loadNotes, saveNotes } from '../utils/storage'
 
-// REQ-NOTES-005
 describe('storage', () => {
   beforeEach(() => localStorage.clear())
 
-  it('returns empty array when localStorage is empty', () => {
+  it('loadNotes returns empty array when localStorage is empty', () => {
     expect(loadNotes()).toEqual([])
   })
 
-  it('persists and reloads notes from localStorage', () => {
-    const notes = [{ id: '1', title: 'Test', body: 'Body', createdAt: 1000 }]
+  it('loadNotes returns previously saved notes', () => {
+    const notes = [{ id: '1', title: 'T', body: 'B', createdAt: 1 }]
     saveNotes(notes)
     expect(loadNotes()).toEqual(notes)
   })
 
-  it('overwrites previous data on save', () => {
-    saveNotes([{ id: '1', title: 'Old', body: 'Old body', createdAt: 1000 }])
-    const updated = [{ id: '1', title: 'New', body: 'New body', createdAt: 1000 }]
-    saveNotes(updated)
-    expect(loadNotes()).toEqual(updated)
+  it('saveNotes persists synchronously (readable immediately after call)', () => {
+    const notes = [{ id: '2', title: 'X', body: 'Y', createdAt: 2 }]
+    saveNotes(notes)
+    expect(JSON.parse(localStorage.getItem('neonotes_v1'))).toEqual(notes)
   })
 
-  it('returns empty array when localStorage contains invalid JSON', () => {
+  it('loadNotes returns empty array when localStorage contains invalid JSON', () => {
     localStorage.setItem('neonotes_v1', 'not-json')
     expect(loadNotes()).toEqual([])
   })

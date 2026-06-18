@@ -1,58 +1,55 @@
+// GENERATED FROM SPEC: specs/notes-app.spec.md
+// REQ-NOTES-001, REQ-NOTES-002, REQ-NOTES-003, REQ-NOTES-004, REQ-NOTES-006
+
 import { useState } from 'react'
 import { useNotes } from './hooks/useNotes'
 import NoteList from './components/NoteList'
 import NoteModal from './components/NoteModal'
+import './index.css'
 
 const styles = {
+  app: {
+    minHeight: '100vh',
+  },
   header: {
-    borderBottom: '1px solid rgba(0,245,255,0.15)',
-    padding: '1.2rem 1.5rem',
+    borderBottom: '1px solid var(--border-glow)',
+    padding: '1.25rem 2rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    maxWidth: '800px',
-    margin: '0 auto',
+    background: 'var(--bg-panel)',
+    boxShadow: '0 1px 20px rgba(0,245,255,0.05)',
   },
-  logo: {
+  brand: {
     fontFamily: 'var(--font-display)',
     fontSize: '1.1rem',
     letterSpacing: '0.2em',
     color: 'var(--neon-cyan)',
     textShadow: '0 0 12px rgba(0,245,255,0.5)',
   },
-  logoAccent: {
+  brandAccent: {
     color: 'var(--neon-violet)',
-  },
-  count: {
-    fontSize: '0.72rem',
-    color: 'var(--text-muted)',
-    letterSpacing: '0.1em',
   },
   btnNew: {
     background: 'transparent',
-    border: '1px solid var(--neon-green)',
-    color: 'var(--neon-green)',
+    border: '1px solid var(--neon-cyan)',
+    color: 'var(--neon-cyan)',
     fontFamily: 'var(--font-display)',
-    fontSize: '0.72rem',
+    fontSize: '0.7rem',
     letterSpacing: '0.12em',
     padding: '0.55rem 1.1rem',
     borderRadius: '3px',
-    textTransform: 'uppercase',
     transition: 'background 0.2s, box-shadow 0.2s',
+    textTransform: 'uppercase',
   },
   main: {
     paddingTop: '2.5rem',
-    paddingBottom: '4rem',
   },
 }
 
 export default function App() {
   const { notes, addNote, updateNote, deleteNote } = useNotes()
-  const [modal, setModal] = useState(null)
-
-  function openNew() { setModal({ mode: 'create' }) }
-  function openEdit(note) { setModal({ mode: 'edit', note }) }
-  function closeModal() { setModal(null) }
+  const [modal, setModal] = useState(null) // null | 'new' | noteObject
 
   function handleSave({ id, title, body }) {
     if (id) {
@@ -63,40 +60,37 @@ export default function App() {
   }
 
   return (
-    <div>
-      <div style={styles.header}>
-        <div>
-          <div style={styles.logo}>
-            NEO<span style={styles.logoAccent}>NOTES</span>
-          </div>
-          <div style={styles.count}>{notes.length} nota{notes.length !== 1 ? 'e' : ''} nel sistema</div>
+    <div style={styles.app}>
+      <header style={styles.header}>
+        <div style={styles.brand}>
+          NEO<span style={styles.brandAccent}>NOTES</span>
         </div>
         <button
           style={styles.btnNew}
-          onClick={openNew}
+          onClick={() => setModal('new')}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(0,255,65,0.08)'
-            e.currentTarget.style.boxShadow = '0 0 12px rgba(0,255,65,0.2)'
+            e.currentTarget.style.background = 'rgba(0,245,255,0.08)'
+            e.currentTarget.style.boxShadow = '0 0 12px rgba(0,245,255,0.2)'
           }}
           onMouseLeave={e => {
             e.currentTarget.style.background = 'transparent'
             e.currentTarget.style.boxShadow = 'none'
           }}
         >
-          + Nuova Nota
+          + Nuova nota
         </button>
-      </div>
+      </header>
 
       <main style={styles.main}>
-        <NoteList notes={notes} onSelectNote={openEdit} />
+        <NoteList notes={notes} onSelectNote={note => setModal(note)} />
       </main>
 
       {modal && (
         <NoteModal
-          note={modal.note ?? null}
+          note={modal === 'new' ? null : modal}
           onSave={handleSave}
           onDelete={deleteNote}
-          onClose={closeModal}
+          onClose={() => setModal(null)}
         />
       )}
     </div>

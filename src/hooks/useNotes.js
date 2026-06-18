@@ -1,3 +1,6 @@
+// GENERATED FROM SPEC: specs/notes-app.spec.md
+// REQ-NOTES-001, REQ-NOTES-002, REQ-NOTES-003, REQ-NOTES-004, REQ-NOTES-005
+
 import { useState } from 'react'
 import { loadNotes, saveNotes } from '../utils/storage'
 

@@ -1,3 +1,6 @@
+// GENERATED FROM SPEC: specs/notes-app.spec.md
+// REQ-NOTES-002, REQ-NOTES-003, REQ-NOTES-004, REQ-NOTES-006
+
 import { useState, useEffect } from 'react'
 
 const styles = {

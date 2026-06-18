@@ -16,6 +16,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install project dependencies
+        run: npm ci
+
       - name: Check all [@test] links resolve to existing files
         run: bash scripts/check-spec-links.sh
 
@@ -25,15 +32,5 @@ jobs:
       - name: Build spec manifest
         run: python3 scripts/build-spec-manifest.py
 
-      # ADAPT: install and run tests here
-      # Example for Python/pytest:
-      #   - uses: actions/setup-python@v5
-      #     with: { python-version: "3.11" }
-      #   - run: pip install -r requirements.txt
-      #   - run: pytest -v
-      #
-      # Example for Node/jest:
-      #   - uses: actions/setup-node@v4
-      #     with: { node-version: "20" }
-      #   - run: npm ci
-      #   - run: npm test
+      - name: Run spec-linked tests
+        run: npm test

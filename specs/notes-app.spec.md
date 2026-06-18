@@ -78,3 +78,4 @@ Ogni nota è un oggetto con la seguente forma:
 - Ordinamento personalizzato
 - Backend o database remoto
 - Autenticazione utente
+

@@ -1,9 +1,11 @@
+// @spec specs/notes-app.spec.md
+// @req REQ-NOTES-001, REQ-NOTES-006
+
 import { describe, it, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from '../App'
 
-// REQ-NOTES-001, REQ-NOTES-006
 describe('App', () => {
   beforeEach(() => localStorage.clear())
 
