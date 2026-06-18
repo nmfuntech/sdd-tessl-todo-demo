@@ -175,7 +175,7 @@ import re
 
 ROOT = Path.cwd()
 SPEC_ROOT = ROOT / "specs"
-REQ_PATTERN = re.compile(r"^###\s+(REQ-[A-Z0-9-]+)", re.MULTILINE)
+REQ_PATTERN = re.compile(r"^#{2,3}\s+(REQ-[A-Z0-9-]+)", re.MULTILINE)
 TEST_PATTERN = re.compile(r"\[@test\]\s+([^\s`)]+)")
 
 
@@ -303,7 +303,7 @@ repos:
 
 ---
 
-## Step 5 — Create `.github/workflows/spec-verification.yml`
+## Step 6 — Create `.github/workflows/spec-verification.yml`
 
 Create `.github/workflows/` if it does not exist.
 
